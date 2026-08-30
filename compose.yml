@@ -1,0 +1,11 @@
+services:
+  app:
+    build: .
+    ports:
+      - 3003:3000
+    volumes:
+      - .:/app
+      - docker-node-modules:/app/node_modules
+
+volumes:
+  docker-node-modules:

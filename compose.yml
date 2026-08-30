@@ -6,6 +6,8 @@ services:
     volumes:
       - .:/app
       - docker-node-modules:/app/node_modules
+    environment:
+      - PORT=${PORT}
 
 volumes:
   docker-node-modules:

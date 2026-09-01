@@ -1,6 +1,8 @@
 import express from "express";
+import dotenv from "dotenv";
 import { db } from "./app/database/db.js";
 import useRoutes from "./app/routes/user.routes.js";
+
 const app = express();
 
 const port = process.env.PORT || 3000;
@@ -9,7 +11,7 @@ console.log("process.env.PORT : ", process.env.PORT);
 app.use(express.json());
 
 // Routes
-router.use("/users", useRoutes);
+app.use("/users", useRoutes);
 
 async function startServer() {
   try {

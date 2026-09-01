@@ -1,4 +1,15 @@
 import pg from "pg";
+import dotenv from "dotenv";
+
+const environment = process.env.NODE_ENV || "local";
+
+const envFile = environment === "docker" ? ".env.docker" : ".env.local";
+
+dotenv.config({
+  path: envFile,
+});
+
+console.log("📄 Fichier chargé :", envFile);
 
 const { Client } = pg;
 

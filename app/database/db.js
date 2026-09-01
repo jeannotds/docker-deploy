@@ -2,7 +2,7 @@ import pg from "pg";
 
 const { Client } = pg;
 
-export const client = new Client({
+export const db = new Client({
   host: process.env.DB_HOST,
   port: process.env.DB_PORT,
   user: process.env.DB_USER,

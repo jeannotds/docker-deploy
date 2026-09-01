@@ -1,9 +1,15 @@
 import express from "express";
 import { db } from "./app/database/db.js";
+import useRoutes from "./app/routes/user.routes.js";
 const app = express();
 
 const port = process.env.PORT || 3000;
 console.log("process.env.PORT : ", process.env.PORT);
+
+app.use(express.json());
+
+// Routes
+router.use("/users", useRoutes);
 
 async function startServer() {
   try {
@@ -28,3 +34,17 @@ async function startServer() {
 }
 
 await startServer();
+
+// // Création de la table
+// async function initializeDatabase() {
+//   await db.query(`
+//     CREATE TABLE IF NOT EXISTS users (
+//       id SERIAL PRIMARY KEY,
+//       name VARCHAR(100) NOT NULL,
+//       email VARCHAR(150) UNIQUE NOT NULL,
+//       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+//     );
+//   `);
+
+//   console.log("✅ Table users prête");
+// }
